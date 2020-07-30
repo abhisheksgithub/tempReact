@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-
+import Registration from './Registration'
+ import UserManagement from './UserManagement';
 function App() {
+  const [name, setName] = useState([])
+  console.log(name, 'name')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <UserManagement />
+      <Registration title="Form Registartion" 
+      name={name} setName={setName} 
+
+      />
+      {name.map((a, index) => <div key={index}>
+            <p>Name :{a.name} <br /> Email :{a.email} </p>
+        </div>)}
+      
+    </>
+  )
 }
 
 export default App;
